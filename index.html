@@ -28,32 +28,35 @@
     </div>
     <button type="submit">Submit</button>
     <button onclick="allStorage()">All Storage</button>
-
   </form>
 
-  <div id="output"></div>
+    <div id="output"></div>
 
-  <script src="./checkValidation.js"></script>
-  <script src="./infoStorage.js"></script>
-  <script>
-    document.getElementById("form").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent form submission
+    <script src="./checkValidation.js"></script>
+    <script src="./infoStorage.js"></script>
+    <script>
+      document
+        .getElementById("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
 
-      // Get the form data
-      const formData = new FormData(event.target);
-      const studentData = {
-        name: formData.get("name"),
-        exam1: parseInt(formData.get("exam1")),
-        exam2: parseInt(formData.get("exam2")),
-        exam3: parseInt(formData.get("exam3"))
-      };
+          // Get the form data
+          const formData = new FormData(event.target);
+          const studentData = {
+            name: formData.get("name"),
+            exam1: parseInt(formData.get("exam1")),
+            exam2: parseInt(formData.get("exam2")),
+            exam3: parseInt(formData.get("exam3")),
+          };
 
-      let existingData = JSON.parse(localStorage.getItem("studentData")) || [];
+          let existingData =
+            JSON.parse(localStorage.getItem("studentData")) || [];
 
-      existingData.push(studentData);
-      localStorage.setItem("studentData", JSON.stringify(existingData));
+          existingData.push(studentData);
+          localStorage.setItem("studentData", JSON.stringify(existingData));
 
-      alert("Registration successful!");
-    });
-  </script>
-</body>
+          alert("Registration successful!");
+        });
+    </script>
+  </body>
+</html>
